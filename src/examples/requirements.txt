@@ -5,7 +5,7 @@ better-exceptions-fork==0.2.1.post6
 colorama==0.4.1
 loguru==0.3.2
 more-itertools==7.2.0
-pluggy==0.13.0
+pluggy==0.13.1
 py==1.8.0
 Pygments==2.4.2
 PyMonad==1.3
