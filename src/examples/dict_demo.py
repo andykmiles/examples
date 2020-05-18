@@ -19,7 +19,6 @@ for key, value in my_dict.items():
 
 assert dict_to_list == [("Andy", "Name"), ("Tutor", "Job")]
 
-
 people = [
     {"Name": "Andy", "Job": "Tutor"},
     {"Name": "Fred", "Job": "Analyst"},
@@ -27,7 +26,6 @@ people = [
 ]
 
 assert people[1]["Name"] == "Fred"
-
 
 # dictionary keys must be unique; show what happens when they are not
 my_dict = {
@@ -39,7 +37,7 @@ my_dict = {
 
 assert my_dict == {"Name": "Andy", "Job": "Analyst", "Preferred_name": "Andy"}
 
-# transpose keys and values
+# transpose keys and values because
 my_new_dict = {}
 for key, value in my_dict.items():
     my_new_dict[value] = key

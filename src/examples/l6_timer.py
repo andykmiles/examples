@@ -16,7 +16,7 @@ def timer(func):
 
 @timer
 def long_f():
-    for num in range(0,99):
+    for num in range(0,4):
         time.sleep(.5)
 
 

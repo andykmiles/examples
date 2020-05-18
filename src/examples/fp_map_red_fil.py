@@ -3,7 +3,8 @@ map, filter and reduce
 
 """
 
-#import pytest
+# import pytest
+
 
 def test_map():
     # apply an operation to each member of a sequence
@@ -15,17 +16,20 @@ def test_map():
 
     assert squared == [1, 4, 9, 16, 25]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     # OR:
 
     items = [1, 2, 3, 4, 5]
-    def sqr(x): return x ** 2
+
+    def sqr(x):
+        return x ** 2
+
     squared = list(map(sqr, items))  # map() returns a map object
 
     assert squared == [1, 4, 9, 16, 25]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     # how about:
     items = [1, 2, 3, 4, 5]
@@ -36,15 +40,15 @@ def test_map():
     # so generally, map(a_function, a_sequence)
     # BUT: does a_sequence have to be "values"???
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     # cool stuff:
 
     def square(x):
-        return x**2
+        return x ** 2
 
     def cube(x):
-        return x**3
+        return x ** 3
 
     funcs = [square, cube]
     output = []
@@ -56,7 +60,7 @@ def test_map():
 
     # note: map can be faster than the manually coded equivalent for loop...
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     # using multiple sequence p[arameters in parallel
 
@@ -65,7 +69,7 @@ def test_map():
     assert pow(4, 12) == 16777216
     assert list(map(pow, [2, 3, 4], [10, 11, 12])) == [1024, 177147, 16777216]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     from operator import add
 
@@ -74,7 +78,7 @@ def test_map():
 
     assert list(map(add, x, y)) == [5, 7, 9]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     """
     The map call is similar to the list comprehension expression.
@@ -95,7 +99,7 @@ def test_map():
 
     assert lambda x: x == x
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     m = [1, 2, 3]
     n = [1, 4, 9]
@@ -108,7 +112,7 @@ def test_map():
 
     assert list(zip(m, n)) == [(1, 1), (2, 4), (3, 9)]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     m = [1, 2, 3]
     n = [1, 4, 9, 10]
@@ -118,9 +122,10 @@ def test_map():
     # prehaps use
 
     from itertools import zip_longest
+
     assert list(zip_longest(m, n)) == [(1, 1), (2, 4), (3, 9), (None, 10)]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
 
 def test_reduce():
@@ -145,7 +150,7 @@ def test_reduce():
 
     assert result == 0.041666666666666664
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
     # use reduce
 
     from functools import reduce
@@ -153,35 +158,34 @@ def test_reduce():
     assert reduce((lambda x, y: x * y), [1, 2, 3, 4]) == 24
     assert reduce((lambda x, y: x / y), [1, 2, 3, 4]) == 0.041666666666666664
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
     # strings too
 
-    l = ['I ', 'passed ', 'the ', 'Python ', 'certificate']
-    assert reduce((lambda x, y: x + y), l) == 'I passed the Python certificate'
+    l = ["I ", "passed ", "the ", "Python ", "certificate"]
+    assert reduce((lambda x, y: x + y), l) == "I passed the Python certificate"
 
 
 def test_filter():
 
     assert list(range(-5, 5)) == [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4]
-    assert list(filter((lambda x: x < 0), range(-5, 5))
-                ) == [-5, -4, -3, -2, -1]
+    assert list(filter((lambda x: x < 0), range(-5, 5))) == [-5, -4, -3, -2, -1]
     # Items in the sequence or iterable for which the function returns a true,
     # the result are added to the result list. Built in and fast
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     a = [1, 2, 3, 5, 7, 9]
     b = [2, 3, 5, 6, 7, 8]
     assert list(filter(lambda x: x in a, b)) == [2, 3, 5, 7]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     # but perhaps a compoprehension instead
     a = [1, 2, 3, 5, 7, 9]
     b = [2, 3, 5, 6, 7, 8]
     assert [x for x in a if x in b] == [2, 3, 5, 7]
 
-    #-------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
 
 if __name__ == "__main__":
