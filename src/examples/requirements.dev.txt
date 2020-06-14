@@ -4,7 +4,7 @@ attrs==19.3.0
 better-exceptions-fork==0.2.1.post6
 colorama==0.4.3
 loguru==0.5.1
-more-itertools==8.3.0
+more-itertools==8.4.0
 pluggy==0.13.1
 py==1.8.1
 Pygments==2.6.1
